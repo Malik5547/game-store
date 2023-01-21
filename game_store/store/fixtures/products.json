@@ -1,0 +1,57 @@
+[
+  {
+    "model": "store.Product",
+    "pk": 1,
+    "fields": {
+      "name": "Spider-Man",
+      "price": 130,
+      "desc": "Description",
+      "thumb": "/media/thumb.png",
+      "category": 3
+    }
+  },
+  {
+    "model": "store.Product",
+    "pk": 2,
+    "fields": {
+      "name": "Days Gone",
+      "price": 30,
+      "desc": "Description",
+      "thumb": "/media/thumb.png",
+      "category": 4
+    }
+  },
+  {
+    "model": "store.Product",
+    "pk": 3,
+    "fields": {
+      "name": "GTA5",
+      "price": 30,
+      "desc": "Description",
+      "thumb": "/media/thumb.png",
+      "category": 3
+    }
+  },
+  {
+    "model": "store.Product",
+    "pk": 4,
+    "fields": {
+      "name": "Ready or Not",
+      "price": 60,
+      "desc": "Description",
+      "thumb": "/media/thumb.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "store.Product",
+    "pk": 5,
+    "fields": {
+      "name": "PlateUp",
+      "price": 20,
+      "desc": "Description",
+      "thumb": "/media/thumb.png",
+      "category": 1
+    }
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "model": "store.ProductCategory",
+    "pk": 1,
+    "fields": {
+      "name": "Strategies"
+    }
+  },
+  {
+    "model": "store.ProductCategory",
+    "pk": 2,
+    "fields": {
+      "name": "RPG"
+    }
+  },
+  {
+    "model": "store.ProductCategory",
+    "pk": 3,
+    "fields": {
+      "name": "Action"
+    }
+  },
+  {
+    "model": "store.ProductCategory",
+    "pk": 4,
+    "fields": {
+      "name": "Shooter"
+    }
+  }
+]

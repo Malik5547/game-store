@@ -17,7 +17,6 @@ class Product(models.Model):
     desc = models.CharField(max_length=250)
     thumb = models.ImageField()
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-    stock = models.IntegerField(default=0)
 
 
 class Order(models.Model):

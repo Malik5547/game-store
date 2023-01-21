@@ -3,6 +3,11 @@ from django.contrib import admin
 from .models import Product, ProductCategory, Order
 
 # Register your models here.
-admin.site.register(ProductCategory)
+class CategoryAdmin(admin.ModelAdmin):
+    fields = ['name',]
+    list_display = ('name',)
+
+
+admin.site.register(ProductCategory, CategoryAdmin)
 admin.site.register(Product)
 admin.site.register(Order)
