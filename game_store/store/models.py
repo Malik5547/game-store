@@ -15,7 +15,7 @@ class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.FloatField(default=0)
     desc = models.CharField(max_length=250)
-    thumb = models.ImageField()
+    thumb = models.ImageField(upload_to='images')
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
 

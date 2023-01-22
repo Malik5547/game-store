@@ -6,7 +6,7 @@
       "name": "Spider-Man",
       "price": 130,
       "desc": "Description",
-      "thumb": "/media/thumb.png",
+      "thumb": "/thumb.png",
       "category": 3
     }
   },
@@ -17,7 +17,7 @@
       "name": "Days Gone",
       "price": 30,
       "desc": "Description",
-      "thumb": "/media/thumb.png",
+      "thumb": "/thumb.png",
       "category": 4
     }
   },
@@ -28,7 +28,7 @@
       "name": "GTA5",
       "price": 30,
       "desc": "Description",
-      "thumb": "/media/thumb.png",
+      "thumb": "/thumb.png",
       "category": 3
     }
   },
@@ -39,7 +39,7 @@
       "name": "Ready or Not",
       "price": 60,
       "desc": "Description",
-      "thumb": "/media/thumb.png",
+      "thumb": "/thumb.png",
       "category": 1
     }
   },
@@ -50,7 +50,7 @@
       "name": "PlateUp",
       "price": 20,
       "desc": "Description",
-      "thumb": "/media/thumb.png",
+      "thumb": "/thumb.png",
       "category": 1
     }
   }
