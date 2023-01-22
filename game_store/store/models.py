@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 class ProductCategory(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
+    icon = models.ImageField(upload_to='images')
 
 
 class Product(models.Model):

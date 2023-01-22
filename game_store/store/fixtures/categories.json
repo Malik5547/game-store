@@ -3,28 +3,32 @@
     "model": "store.ProductCategory",
     "pk": 1,
     "fields": {
-      "name": "Strategies"
+      "name": "Strategies",
+      "icon": "/RPG_Icon.png"
     }
   },
   {
     "model": "store.ProductCategory",
     "pk": 2,
     "fields": {
-      "name": "RPG"
+      "name": "RPG",
+      "icon": "/RPG_Icon.png"
     }
   },
   {
     "model": "store.ProductCategory",
     "pk": 3,
     "fields": {
-      "name": "Action"
+      "name": "Action",
+      "icon": "/RPG_Icon.png"
     }
   },
   {
     "model": "store.ProductCategory",
     "pk": 4,
     "fields": {
-      "name": "Shooter"
+      "name": "Shooter",
+      "icon": "/RPG_Icon.png"
     }
   }
 ]
