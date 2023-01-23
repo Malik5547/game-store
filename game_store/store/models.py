@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ProductCategory(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    icon = models.ImageField(upload_to='images')
+    icon = models.ImageField(upload_to='images', default="/thumb.png")
 
 
 class Product(models.Model):
@@ -17,6 +17,8 @@ class Product(models.Model):
     price = models.FloatField(default=0)
     desc = models.CharField(max_length=250)
     thumb = models.ImageField(upload_to='images')
+    image1 = models.ImageField(upload_to='images', default=None)
+    image2 = models.ImageField(upload_to='images', default=None)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
 
