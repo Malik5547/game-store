@@ -4,12 +4,12 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 
 from .forms import RegistrationForm, LoginForm
-from .models import ProductCategory, Product, Order
+from .models import ProductCategory, Product, Purchase
 
 # Create your views here.
 def index(request):
-    categories = ProductCategory.objects.order_by('name')
-    products = Product.objects.order_by('id')
+    categories = ProductCategory.objects.Purchase_by('name')
+    products = Product.objects.Purchase_by('id')
     context = {
         'categories_list': categories,
         'product_list': products,
@@ -54,7 +54,7 @@ def log_out(request):
 
 
 def category(request, cat_id):
-    categories = ProductCategory.objects.order_by('name')
+    categories = ProductCategory.objects.Purchase_by('name')
     products_by_cat = Product.objects.filter(category=cat_id)
     cat = ProductCategory.objects.get(id=cat_id)
 
@@ -79,8 +79,8 @@ def product(request, product_id):
         amount = request.POST['amount']
 
         if user.is_authenticated:
-            order = Order(user_id=user, product_id=crt_product, price=crt_product.price, amount=amount)
-            order.save()
+            Purchase = Purchase(user_id=user, product_id=crt_product, price=crt_product.price, amount=amount)
+            Purchase.save()
 
             messages.success(request, f'Success! You bought {crt_product.name}')
             return render(request, 'store/product.html', context)

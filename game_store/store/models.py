@@ -22,7 +22,7 @@ class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
 
-class Order(models.Model):
+class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
