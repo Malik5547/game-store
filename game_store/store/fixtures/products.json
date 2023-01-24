@@ -7,6 +7,8 @@
       "price": 130,
       "desc": "Description",
       "thumb": "/thumb.png",
+      "image1": "image1.png",
+      "image2": "image2.png",
       "category": 3
     }
   },
@@ -18,6 +20,8 @@
       "price": 30,
       "desc": "Description",
       "thumb": "/thumb.png",
+      "image1": "image1.png",
+      "image2": "image2.png",
       "category": 4
     }
   },
@@ -29,6 +33,8 @@
       "price": 30,
       "desc": "Description",
       "thumb": "/thumb.png",
+      "image1": "image1.png",
+      "image2": "image2.png",
       "category": 3
     }
   },
@@ -40,6 +46,8 @@
       "price": 60,
       "desc": "Description",
       "thumb": "/thumb.png",
+      "image1": "image1.png",
+      "image2": "image2.png",
       "category": 1
     }
   },
@@ -51,6 +59,8 @@
       "price": 20,
       "desc": "Description",
       "thumb": "/thumb.png",
+      "image1": "image1.png",
+      "image2": "image2.png",
       "category": 1
     }
   }
