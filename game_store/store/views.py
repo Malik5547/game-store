@@ -1,9 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 
 from .forms import RegistrationForm, LoginForm
-from .models import ProductCategory, Product
+from .models import ProductCategory, Product, Order
 
 # Create your views here.
 def index(request):
@@ -67,10 +68,31 @@ def category(request, cat_id):
 
 
 def product(request, product_id):
-    selected_product = Product.objects.get(id=product_id)
+    crt_product = Product.objects.get(id=product_id)
 
     context = {
-        'product': selected_product,
+        'product': crt_product,
     }
 
-    return render(request, 'store/product.html', context)
+    if request.method == 'POST':
+        user = request.user
+        amount = request.POST['amount']
+
+        if user.is_authenticated:
+            order = Order(user_id=user, product_id=crt_product, price=crt_product.price, amount=amount)
+            order.save()
+
+            messages.success(request, f'Success! You bought {crt_product.name}')
+            return render(request, 'store/product.html', context)
+
+        else:
+            messages.error(request, f'To buy a product you should first sign in.')
+            return redirect('store:sign-in')
+    else:
+
+        return render(request, 'store/product.html', context)
+
+
+def purchase(request, product_id):
+    selected_product = Product.objects.get(id=product_id)
+

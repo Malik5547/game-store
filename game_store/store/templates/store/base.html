@@ -204,6 +204,23 @@
     </div>
     <!-- Login Modal Section End -->
 
+    <!-- Message Alert Begin -->
+     <section >
+        <div class="container">
+        {% if messages %}
+    <ul class="messages alert alert-primary" role="alert">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% comment %}{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}{% endcomment %}
+        {{ message }}
+    </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+        </div>
+     </section>
+    <!-- Message Alert End -->
+
 
     {% block content %}
     {% endblock %}

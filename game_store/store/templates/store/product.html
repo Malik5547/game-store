@@ -34,14 +34,20 @@
                         </div>{% endcomment %}
                         <div class="product__details__price">${{ product.price }}</div>
                         <p>{{ product.desc }}</p>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {% comment %}{{ form }}{% endcomment %}
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" name="amount" value="1">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">BUY</a>
+
+                        <button type="submit" class="btn primary-btn btn-success">BUY</button>
+                        </form>
                         <ul>
                            {% comment %} <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
