@@ -8,8 +8,8 @@ from .models import ProductCategory, Product, Purchase
 
 # Create your views here.
 def index(request):
-    categories = ProductCategory.objects.Purchase_by('name')
-    products = Product.objects.Purchase_by('id')
+    categories = ProductCategory.objects.order_by('name')
+    products = Product.objects.order_by('id')
     context = {
         'categories_list': categories,
         'product_list': products,
@@ -54,7 +54,7 @@ def log_out(request):
 
 
 def category(request, cat_id):
-    categories = ProductCategory.objects.Purchase_by('name')
+    categories = ProductCategory.objects.order_by('name')
     products_by_cat = Product.objects.filter(category=cat_id)
     cat = ProductCategory.objects.get(id=cat_id)
 
@@ -76,11 +76,11 @@ def product(request, product_id):
 
     if request.method == 'POST':
         user = request.user
-        amount = request.POST['amount']
+        amount = int(request.POST['amount'])
 
         if user.is_authenticated:
-            Purchase = Purchase(user_id=user, product_id=crt_product, price=crt_product.price, amount=amount)
-            Purchase.save()
+            new_purchase = Purchase(user_id=user, product_id=crt_product, price=crt_product.price * amount, amount=amount)
+            new_purchase.save()
 
             messages.success(request, f'Success! You bought {crt_product.name}')
             return render(request, 'store/product.html', context)
@@ -93,6 +93,18 @@ def product(request, product_id):
         return render(request, 'store/product.html', context)
 
 
-def purchase(request, product_id):
-    selected_product = Product.objects.get(id=product_id)
+def purchases(request):
+    user = request.user
+
+    if user.is_authenticated:
+        user_purchases = Purchase.objects.filter(user_id=user)
+        context = {
+            "purchases": user_purchases,
+        }
+
+        return render(request, 'store/purchases.html', context)
+
+    else:
+        messages.error(request, f'To see your purchases, you must first log in.')
+        return redirect('store:sign-in')
 

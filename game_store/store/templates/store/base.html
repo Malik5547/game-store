@@ -156,6 +156,15 @@
                         </ul>
                     </nav>
                 </div>
+                 <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                           {% comment %} <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>{% endcomment %}
+                            <li><a href="{% url "store:purchases" %}"><i class="fa fa-shopping-bag"></i></a></li>
+                        </ul>
+                        {% comment %}<div class="header__cart__price">item: <span>$150.00</span></div>{% endcomment %}
+                    </div>
+                </div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
