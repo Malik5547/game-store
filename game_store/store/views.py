@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
@@ -6,13 +7,23 @@ from django.contrib.auth import login, logout, authenticate
 from .forms import RegistrationForm, LoginForm
 from .models import ProductCategory, Product, Purchase
 
+
+PRODUCTS_ON_PAGE = 1
+
+
 # Create your views here.
 def index(request):
     categories = ProductCategory.objects.order_by('name')
-    products = Product.objects.order_by('id')
+    all_products = Product.objects.order_by('id')
+
+    p = Paginator(all_products, PRODUCTS_ON_PAGE)
+    page = request.GET.get('page')
+    page_products = p.get_page(page)
+
     context = {
         'categories_list': categories,
-        'product_list': products,
+        'product_list': all_products,
+        'products': page_products,
     }
     return render(request, 'store/index.html', context)
 

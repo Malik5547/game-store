@@ -1625,6 +1625,7 @@ ol {
 }
 
 .product__pagination a,
+.product__pagination div,
 .blog__pagination a {
 	display: inline-block;
 	width: 30px;
@@ -1646,6 +1647,12 @@ ol {
 .product__pagination a:hover,
 .blog__pagination a:hover {
 	background: #7fad39;
+	border-color: #7fad39;
+	color: #ffffff;
+}
+
+.product__pagination div.highlight {
+	background: #81b266;
 	border-color: #7fad39;
 	color: #ffffff;
 }
