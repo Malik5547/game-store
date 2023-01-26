@@ -33,6 +33,9 @@ class Product(models.Model):
         return self.category
     get_category.short_description = 'Category'
 
+    def __str__(self):
+        return self.name
+
 
 class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
