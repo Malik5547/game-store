@@ -8,7 +8,7 @@ from .forms import RegistrationForm, LoginForm
 from .models import ProductCategory, Product, Purchase
 
 
-PRODUCTS_ON_PAGE = 1
+PRODUCTS_ON_PAGE = 4
 
 
 # Create your views here.
@@ -69,10 +69,14 @@ def category(request, cat_id):
     products_by_cat = Product.objects.filter(category=cat_id)
     cat = ProductCategory.objects.get(id=cat_id)
 
+    p = Paginator(products_by_cat, PRODUCTS_ON_PAGE)
+    page = request.GET.get('page')
+    page_products = p.get_page(page)
+
     context = {
         'categories_list': categories,
         'selected_cat': cat,
-        'product_list': products_by_cat,
+        'products': page_products,
     }
 
     return render(request, 'store/index.html', context)
