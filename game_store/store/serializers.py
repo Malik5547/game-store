@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
+from .models import Product
+
 UserModel = get_user_model()
 
 class UserSerializer(serializers.Serializer):
@@ -18,3 +20,18 @@ class UserSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['name']
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price', 'desc', 'thumb', 'image1', 'image2', 'category']
+
