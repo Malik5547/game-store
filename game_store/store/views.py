@@ -3,9 +3,13 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
+from django.shortcuts import  get_object_or_404
+from rest_framework.response import Response
+from rest_framework import viewsets, permissions
 
 from .forms import RegistrationForm, LoginForm
 from .models import ProductCategory, Product, Purchase
+from .serializers import UserSerializer, UserModel
 
 
 PRODUCTS_ON_PAGE = 4
@@ -123,3 +127,19 @@ def purchases(request):
         messages.error(request, f'To see your purchases, you must first log in.')
         return redirect('store:sign-in')
 
+
+# REST Framework
+class UsersViewSet(viewsets.ViewSet):
+    queryset = UserModel.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def list(self, request):
+        queryset = UserModel.objects.all()
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrive(self, request, pk=None):
+        user = get_object_or_404(UserModel, pk=pk)
+        serializers = UserSerializer(user)
+        return Response(serializers.data)
