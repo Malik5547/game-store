@@ -9,7 +9,7 @@ from rest_framework import viewsets, permissions
 
 from .forms import RegistrationForm, LoginForm
 from .models import ProductCategory, Product, Purchase
-from .serializers import UserSerializer, UserModel, ProductSerializer
+from .serializers import UserSerializer, UserModel, ProductSerializer, PurchaseSerializer
 
 
 PRODUCTS_ON_PAGE = 4
@@ -152,4 +152,13 @@ class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
         queryset = Product.objects.all()
         serializer = ProductSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class PurchaseViewSet(viewsets.ViewSet):
+    queryset = Purchase.objects.all()
+    serializer_class = PurchaseSerializer
+
+    def list(self, request):
+        queryset = Purchase.objects.all()
+        serializer = PurchaseSerializer(queryset, many=True)
         return Response(serializer.data)
