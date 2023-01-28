@@ -23,11 +23,11 @@
                                 {% for item in purchases %}
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img class="col-md-2 px-0" src="{{ item.product_id.thumb.url }}" alt="">
-                                        <h5>{{ item.product_id.name }}</h5>
+                                        <img class="col-md-2 px-0" src="{{ item.product.thumb.url }}" alt="">
+                                        <h5>{{ item.product.name }}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        ${{ item.product_id.price }}
+                                        ${{ item.product.price }}
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
